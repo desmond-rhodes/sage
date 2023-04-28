@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+docker build -t sage .
+docker run -itd -p8888:8888 -v%userprofile%:/tree --name sage sage
+alias sage='docker logs sage | grep '\''http://127.0.0.1:8888/'\'' | sed -n '\''$!d;s/^.*http/http/'\''p'
